@@ -1,0 +1,23 @@
+# Gitignore for Django Project
+
+# Python
+*.py[cod]
+*.pyc
+__pycache__/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# Secrets
+.venv
+
+# OS
+.DS_Store
+Thumbs.db
