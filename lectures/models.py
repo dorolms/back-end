@@ -8,7 +8,7 @@ class Lecture(models.Model):
         GENERAL = 'general', '일반 (노랑)'
         COMPETITION = 'competition', '대회 (하늘)'
         CAMP = 'camp', '캠프 (연두)'
-        TOTOLAND = 'totoland', '도로랜드 (파랑)'
+        DOROLAND = 'doroland', '도로랜드 (파랑)'
         BOOTH = 'booth', '부스 (핑크)'
         ETC = 'etc', '기타 (회색)'
 

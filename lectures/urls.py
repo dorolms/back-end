@@ -1,13 +1,17 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
 from .views import (
-    LectureListView, LectureDetailView,
-    LectureCalendarView, ApplicationCreateView, ApplicationListView,
+    LectureViewSet,
+    LectureRecruitmentViewSet,
+    ApplicationViewSet,
 )
 
+router = DefaultRouter()
+router.register(r'lectures', LectureViewSet, basename='lecture')
+router.register(r'recruitments', LectureRecruitmentViewSet, basename='lecture-recruitment')
+router.register(r'applications', ApplicationViewSet, basename='application')
+
 urlpatterns = [
-    path('', LectureListView.as_view(), name='lecture-list'),
-    path('calendar/', LectureCalendarView.as_view(), name='lecture-calendar'),
-    path('<int:pk>/', LectureDetailView.as_view(), name='lecture-detail'),
-    path('<int:pk>/apply/', ApplicationCreateView.as_view(), name='lecture-apply'),
-    path('<int:pk>/applications/', ApplicationListView.as_view(), name='lecture-applications'),
+    path('', include(router.urls)),
 ]
